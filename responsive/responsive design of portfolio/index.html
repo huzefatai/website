@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Untitled</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="" type="text/css" />
+  <meta name="viewport"content="width=device-width, initial-scale=1.0">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.toggle').click(function() {
+        $('.toggle').toggleClass('active');
+        $('.side-bar').toggleClass('active');
+      });
+
+      $('.signupbtn').click(function() {
+        $('.signup').slideToggle(function() {
+          $('.signup').css("visibility", "visible");
+          $('.signup').css("opacity", "1");
+          $('.signup').css("position", "relative");
+        });
+      });
+
+    });
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      max-width: 800px;
+      height: auto;
+      overflow-x: show;
+    }
+
+    .warpper-1 {
+      background: #fff;
+      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      width: 800px;
+    }
+
+    .header {
+      position: fixed;
+      background-color: #ff793f;
+      width: 800px;
+      height: 80px;
+      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .header nav ul li {
+
+      list-style: none;
+      transform: translate(10%, 45%);
+    }
+
+    .header nav ul li a {
+      font-size: 36px;
+      letter-spacing: 2px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .header nav ul li a:hover {
+      text-decoration: underline;
+
+    }
+
+    .header .toggle {
+      position: relative;
+      top: 28px;
+      right: -10px;
+      margin-right: 50px;
+      transition: 0.5s;
+      z-index: 1000;
+      float: right;
+      cursor: pointer;
+    }
+
+    .header .toggle::before {
+      content: 'menu';
+      color: #fff;
+      text-transform: capitalize;
+      font-weight: 100;
+      font-size: 24px;
+    }
+
+    .header .toggle.active::before {
+      content: 'close';
+      color: #fff;
+      text-transform: capitalize;
+      font-weight: 100;
+      font-size: 24px;
+    }
+
+    .header .side-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 800px;
+      height: 100vh;
+      background: #c93243;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .1s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1;
+    }
+
+    .side-bar.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    ul {
+      position: relative;
+      list-style: none;
+    }
+
+    ul li {
+      text-align: center;
+    }
+
+    ul li a {
+      text-decoration: none;
+      color: #f1f1f1;
+      font-size: 48px;
+      margin-top: 10px;
+      letter-spacing: 5px;
+    }
+
+    ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .warpper-2 {
+      background-color: #ea8685;
+      background-image: url("image.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 800px;
+      height: 689px;
+      text-align: center;
+    }
+
+    .warpper-2 p {
+      color: #fff;
+      margin-top: 0px;
+      font-size: 32px;
+      padding-top: 250px;
+      letter-spacing: 5px;
+      font-weight: bolder;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .warpper-2 small {
+      font-size: 18px;
+      letter-spacing: 5px;
+      text-align: center;
+    }
+
+    .warpper-2 i {
+      text-align: center;
+      padding-top: 100px;
+      font-size: 60px;
+    }
+
+
+
+    .warpper2 {
+      width: 800px;
+      height: 80px;
+      background-color: #487eb0;
+    }
+
+    .warpper2 p {
+      float: left;
+      font-size: 20px;
+      margin: 30px 50px;
+      padding: 0;
+      letter-spacing: 2px;
+      color: white;
+    }
+
+    .warpper2 nav {
+      position: relative;
+      display: inline-flex;
+      float: none;
+      margin: 2px 0 0;
+    }
+
+    .warpper2 nav form {
+      margin: 20px;
+      padding: 0;
+      display: flex;
+    }
+
+    .warpper2 nav form input {
+      outline: none;
+      border: none;
+      padding: 2px;
+      width: 250px;
+      margin-right: 10px;
+      background-color: white;
+      color: black;
+      height: 33px;
+      font-size: 14px;
+
+    }
+
+    ::placeholder {
+      color: #2C3A47;
+      letter-spacing: 2px;
+      font-family: cursive;
+    }
+
+    .warpper2 nav form button {
+      width: auto;
+      height: auto;
+      border: none;
+      padding: 6px;
+      background-color: #303952;
+      color: #fff;
+      letter-spacing: 2px;
+      cursor: pointer;
+      font-size: 18px;
+      font-family: cursive;
+    }
+
+    .warpper3 {
+      position: relative;
+      width: 800px;
+      height: auto;
+      background: #33d9b2;
+      padding: 0;
+      margin: 0;
+      color: #fff;
+    }
+
+    .warpper3 .bar {
+      display: inline-flex;
+      padding: 20px;
+    }
+
+    .warpper3 .bar .head {
+      float: left;
+      font-size: 24px;
+    }
+
+    .warpper3 .bar .head p {
+      padding-left: 25px;
+      margin-top: 12px;
+      letter-spacing: 1px;
+      color: #ffff;
+      font-weight: lighter;
+    }
+
+    .warpper3 .bar .btn-signup {
+      float: none;
+      font-size: 20px;
+      background-color: red;
+      padding: 10px 30px;
+      margin-bottom: 5px;
+      transform: translate(180%);
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .warpper3 .bar .btn-signup a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .warpper-3 {
+      position: relative;
+      width: 800px;
+      height: auto;
+      background-color: #fff;
+    }
+
+
+    .warpper-3 .container {
+      position: absolute;
+      width: 800px;
+      height: auto;
+    }
+
+    .warpper-3 .container .imageBox {
+      position: relative;
+      float: none;
+      margin: 70px 0 30px 100px;
+    }
+
+    .warpper-3 .container section {
+      position: absolute;
+      float: none;
+      width: 600px;
+      height: 500px;
+      margin-:
+    }
+
+    .warpper-3 .container section p {
+      font-size: 14px;
+      text-align: left;
+      align-items: center;
+      margin: 10px 50px 0 100px;
+    }
+
+    .warpper-3 .container section h3 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 400;
+      margin: 0px 0 0 -10px;
+    }
+
+    .warpper-3 {
+      background-color: #2ecc71;
+      width: 1440px;
+      height: auto;
+    }
+
+    .warpper-3 section .read-more {
+      text-decoration: none;
+      font-size: 18px;
+      display: block;
+      width: 120px;
+      height: auto;
+      background: #4E9CAF;
+      padding: 15px;
+      text-align: center;
+      /* border-radius: 5px; */
+      color: white;
+      /* font-weight: bold; */
+      transform: translate(65%, 100%);
+    }
+
+
+    .View-More {
+      padding: 0 0 40px;
+    }
+
+    .View-More .button {
+      text-decoration: none;
+      font-size: 18px;
+      display: block;
+      width: 120px;
+      height: auto;
+      background: #4E9CAF;
+      padding: 15px;
+      text-align: center;
+      /* border-radius: 5px; */
+      color: white;
+      /* font-weight: bold; */
+      transform: translate(65%, 1550%);
+    }
+
+    .title {
+      background-color: #ffffff;
+      font-size: 24px;
+      text-align: center;
+      padding: 20px;
+      margin: 1px;
+      width: 760px;
+      height: auto;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, .1);
+    }
+
+    .proffesion {
+      width: 650px;
+      margin: 20px;
+      margin-left: 200px;
+      padding: 20px;
+      transform: translate(-20%, 90%);
+    }
+
+    .proffesion section {
+      display: block;
+      box-shadow: 0px 5px 5px rgba(0, 0, 0, .1);
+      margin: 0  0 10px;
+    }
+
+    .proffesion .first, .second, .thrid {
+      position: relative;
+      background-color: #f7d794;
+      padding: 0px 20px 20px 20px;
+      text-align: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    .proffesion .first {
+    margin-bottom: 10px;
+    }
+  .proffesion .second {
+    margin-bottom: 10px;
+
+  }
+    .proffesion .thrid {
+      margin-bottom: 10px;
+
+    }
+
+    .proffesion .thrid img {
+      margin-top: 8.5px;
+    }
+
+    .proffesion .first .logo img, .second .logo img, .thrid .logo img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .signup {
+      background-color: #fff;
+      padding: 150px 0 0 100px;
+      background: url("https://designshack.net/wp-content/uploads/best-subtle-black-white-background-textures.jpg") no-repeat;
+      background-size: cover;
+      width: 700px;
+      height: 600px;
+    }
+
+    .signup article {
+      margin: 0 20px;
+    }
+
+    .signup .inputs {
+      display: flex;
+    }
+
+    .signup form {
+      margin: 0px;
+      padding-top: 20px;
+    }
+
+    .signup .title1 {
+      font-size: 26px;
+      color: #fff;
+    }
+
+    .signup .subtitle1 {
+      font-size: 36px;
+      color: #fff;
+    }
+
+    .signup form .input1 {
+      display: block;
+      margin: 20px;
+    }
+
+    .signup form .input2 {
+      display: block;
+      margin: 20px;
+    }
+
+    .signup form input {
+      display: block;
+      margin-bottom: 10px;
+      width: 280px;
+      height: 40px;
+      font-size: 24px;
+      outline: inherit;
+    }
+
+    .signup form label {
+      font-size: 18px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .signup form button {
+      border: none;
+      padding: 20px;
+      margin: 0 20px;
+      border-radius: 5px;
+      background: #47cf73;
+      font-size: 18px;
+      color: #000;
+    }
+
+    footer {
+      color: white;
+      background-color: #182C61;
+      margin: 900px 0 0 0;
+      padding: 30px 30px;
+      width: 740px;
+      height: 220px;
+    }
+
+    footer .footer-head {
+      letter-spacing: 5px;
+      margin: 0;
+      padding: 0;
+      float: left;
+      font-size: 32px;
+    }
+
+    footer article {
+      letter-spacing: 2px;
+      font-size: 22px;
+      margin: 0 70px 0 0;
+      padding: 0;
+      float: right;
+    }
+
+    footer section {
+      transform: translate(10%, 100%);
+    }
+
+    footer section i {
+      font-size: 24px;
+      padding: 0 0px;
+      margin: 0;
+      color: #000;
+      transition: .2s ease-in-out;
+      display: inline-flex;
+    }
+
+    footer p {
+      font-size: 18px;
+      color: #fff;
+      margin: 0 0 0 00px;
+      letter-spacing: 5px;
+    }
+
+    footer section i:hover {
+      color: #26c6c6;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="warpper-1">
+    <div class="header">
+      <div class="toggle">
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html">Huzefa Tai</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="side-bar">
+        <ul>
+          <li><a href="index.php" data-text="Home">Home</a></li>
+          <li><a href="work/work.php" data-text="Work">Work</a></li>
+          <li><a href="about/about.php" data-text="About">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="warpper-2">
+    <p class="line ani-typewriter">Hii I'm Huzefa Tai A Full Stack Web Developer <br> At Beginner Level</p>
+      <small>Here Are Some My Creation For You</small><br>
+      <i class="fas fa-arrow-down"></i>
+  </div>
+  <div class="warpper2">
+    <p>Subscribe For Daily Update</p>
+    <nav>
+      <form class="" action="phpScript/subscribe.php" method="post">
+        <input type="" name="email" placeholder="Enter Your Email" required>
+        <button type="submit" name="btn">Subscribe</button>
+      </form>
+    </nav>
+  </div>
+
+  <div class="signup" style="visibility: hidden; opacity: 0; position: absolute;">
+    <article class="">
+
+      <span class="title1">Huzefa Tai</span>
+      <br>
+      <span class="subtitle1">Sign Up ! </span>
+    </article>
+
+    <div class="form">
+      <form class="" method="post" action="phpScript/signup.php">
+        <div class="inputs">
+          <div class="input1">
+            <label for="Firstname"> Username </label>
+            <input type="text" id="username" name="Username" minlength="4">
+            <label for="Email">Email</label>
+            <input type="email" id="email" name="email">
+            <label for="Password"> Hobbie </label>
+            <input type="text" id="hobbie" name="hobbie" minlength="4">
+
+    </div>
+            <div class="input2">
+              <label for="Email"> Date Of Birth (DD-MM-YY) </label>
+              <input type="text" id="dob" name="dob">
+              <label for="Password">Password</label>
+              <input type="password" id="password" name="password" minlength="4">
+              <label for="Confirm Password">Confirm Password</label>
+              <input type="password" id="password1" name="password1">
+    </div>
+            </div>
+
+            <button type="submit" name="signup" onclick="signup ()">Submit</button>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="warpper3">
+    <div class="bar">
+      <div class="head">
+        <p>Signup Now For Latest Updates</p>
+      </div>
+      <div class="btn-signup">
+        <p style="cursor:pointer" class="signupbtn">Sign Up</p>
+      </div>
+    </div>
+  </div>
+  <div class="title">
+    Blog Related Content
+  </div>
+  <div class=" warpper-3">
+    <div class="container">
+      <div class="imageBox">
+        <iframe width="600" height="315" src="https://www.youtube.com/embed/uQgfQIVFG5o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <section>
+        <h3>Unboxing Of Sonata Watch For Women</h3>
+        <p>
+          Check My Youtube Video Right Now For Buying Link And Product Detalis.. Pls Share
+          <i class="fas fa-share-alt-square"></i>
+          Like
+          <i class="far fa-thumbs-up"></i>
+          And Subsribe
+          <i class= "fab fa-youtube"></i>
+
+          <br>
+          <br>
+       Join My Youtube Channel
+          <br>
+          <a href="https://youtube.com/huzefatai" target="_blank">https://youtube.com/huzefatai</a>
+          <br>
+       Join My WhatsApp Group
+          <a href="https://chat.whatsapp.com/7HxiNv4gxFWCCd9Tdvvw5I" target="_blank">https://chat.whatsapp.com/7HxiNv4gxFWCCd9Tdvvw5I</a>
+
+          <br>
+       Join Me On Blogger
+          <br>
+          <a href="https://huzefatai.blogspot.in" target="_blank">https://huzefatai.blogspot.in</a>
+        </p>
+
+        <br>
+
+        <!-- read more buttton-->
+
+        <a href="HTML-Tutorial-For-Beginners...-Lecture-III" class="read-more">Read More</a>
+
+
+      </section>
+
+    </div>
+
+  </div>
+
+
+  <!--view more -->
+
+  <div class="View-More">
+
+    <a href="blog/page-1.php" class="button">View More</a>
+
+  </div>
+
+
+  <div class="proffesion" style="border-radius: 10px; display: block;">
+    <section>
+      <div class="first">
+        <div class="logo">
+          <img src="https://static.thenounproject.com/png/108284-200.png" alt="">
+        </div>
+
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+
+        </div>
+        <div class="second">
+          <div class="logo">
+            <img src="https://cdn2.iconfinder.com/data/icons/startup-management/325/Project_management_End_Project_Report-512.png" alt="">
+          </div>
+            <div class="content">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+          <div class="thrid">
+            <div class="logo">
+              <img src="https://melbournechapter.net/images/transparent-tie-work-6.png" alt="">
+            </div>
+
+              <div class="content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat.
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+            </div>
+
+    </section>
+
+  </div>
+
+  <footer>
+    <p class="footer-head">Huzefa Tai</p>
+    <article class="">
+      All RIghts Are Reserverd From Huzefa Tai &copy 2018
+    </article>
+    <section>
+      <p>Follow Me On Social Media</p> <br><br>
+      <main>
+        <a href="https://facebook.com/taihuzefa" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/huzefatai" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://youtube.com/huzefatai" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://instagram.com/taihuzefa" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://googleplus.com/taihuzefa" target="_blank"><i class="fab fa-google-plus-square"></i></a>
+      </main>
+
+    </section>
+  </footer>
+
+</body>
+
+</html>

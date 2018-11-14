@@ -1,5 +1,4 @@
 <?php session_start();
-$_SESSION['username'] = 'admin';
 ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 
  ?>
@@ -12,7 +11,7 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <title>Portfolio | Huzefa</title>
-  <link rel="shortcut icon" type="image/png" href="https://drive.google.com/open?id=1A43TrhQfBUV-g1pY1N6A34H2p1EaTUZB"/>
+  <link rel="shortcut icon" type="image/png" href="https://drive.google.com/open?id=1A43TrhQfBUV-g1pY1N6A34H2p1EaTUZB" />
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/fontawesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
@@ -20,9 +19,9 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script type="text/javascript">
-  alert("This Is Site Is Under Development If You Get Any Error Comment In Blog");
-</script>
+  <script type="text/javascript">
+    alert("This Is Site Is Under Development If You Get Any Error Comment In Blog");
+  </script>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
@@ -60,13 +59,13 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
           }
         });
 
-        });
+      });
 
 
     });
   </script>
 
-<style>
+  <style>
 
     img[alt="www.000webhost.com"] {
         display: none;
@@ -92,15 +91,44 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 
 
   <!--warpper-1-->
+
+
   <div class="warpper-1">
-    <div class="header">
+    <section class="header">
       <div class="toggle">
       </div>
-      <nav>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('#search').keyup(function() {
+            var txt = $(this).val();
+            if (txt != '') {
+              $('.result').html('');
+              $.ajax({
+                url: "admin/search.php",
+                method: "post",
+                data: {
+                  search: txt
+                },
+                dataType: "text",
+                success: function(data) {
+                  $('.res').html(data);
+                }
+              });
+            } else {
+
+            }
+          });
+        });
+      </script>
+      <div class="headline">
         <ul>
-          <li><a href="index.html">Huzefa Tai</a></li>
+          <li><a style="font-size: 32px;letter-spacing: 5px; position: absolute;top: 10px;right: 620px;
+            " href="index.php" target="_blank">Huzefa Tai</a></li>
+          <li style="margin: 0; padding: 0; transform: translate(-32%, 50%);">
+            <input style="padding: 10px; border: none; width: 200px; font-size: 18px; outline: none;" type="text" id="search" placeholder="search">
+          </li>
         </ul>
-      </nav>
+      </div>
       <div class="side-bar">
         <ul>
           <li><a href="index.php" data-text="Home">Home</a></li>
@@ -111,30 +139,56 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
       <div class="user_login">
         <div class="user_image">
           <img class="profile" src="http://www.sscok.edu/Foundation/wp-content/uploads/2013/06/Mathews-Tim.jpg">
+        </div>
           <?php
 
         if ($_SESSION['username']) {
           // code...
 
-  echo '
+echo '
           <div class="full-profile" onload="loadProfile()">
             <p></p>
             <a href="profile/profile.php"></a>
 
           </div>';
         }
-  ?>
+ ?>
         </div>
-    </div>
+
+        <!--      login popup     -->
+
+        <?php if ($_SESSION['username'] == '') {
+echo '<div class="login-btn">
+    <span>Login</span>
   </div>
+  <div class="login-page">
+    <span>Login !</span>
+
+    <form class="" action="phpScript/login.php" method="post">
+      <label for="">Email</label>
+      <input type="email" name="email" min="3" maxlength="50">
+      <label for="">Password</label>
+      <input type="password" name="password" min="3" maxlength="20">
+      <button type="submit" name="loginbtn">Login</button>
+    </form>
+  </div>';
+} else {
+
+}
+ ?>
+
+
+    </section>
+
+  </div>
+
+  <!--  warpper-2 -->
 
   <div class="warpper-2">
     <p class="line ani-typewriter">Hii I'm Huzefa Tai A Full Stack Web Developer <br> At Beginner Level</p>
       <small>Here Are Some My Creation For You</small><br>
       <i class="fas fa-arrow-down"></i>
   </div>
-
-
   <div class="warpper2">
     <p>Subscribe For Daily Update</p>
     <nav>
@@ -145,10 +199,21 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
     </nav>
   </div>
 
+  <!--  warpper3 -->
 
-<div class="login-btn">
-  <span>Login</span>
-</div>
+
+  <!--    form   -->
+
+  <div class="warpper3">
+    <div class="bar">
+      <div class="head">
+        <p>Signup Now For Latest Updates</p>
+      </div>
+      <div class="btn-signup">
+        <p style="cursor:pointer" class="signupbtn">Sign Up</p>
+      </div>
+    </div>
+  </div>
 
   <div class="signup" style="visibility: hidden; opacity: 0; position: absolute;">
     <article class="">
@@ -184,109 +249,53 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 
       </form>
     </div>
+    <div class="line" style="
+  border-right: 5px solid white;
+  width: 100%;
+  height: 100px;
+    "></div>
   </div>
 
-  <div class="warpper3">
-    <div class="bar">
-      <div class="head">
-        <p>Signup Now For Latest Updates</p>
-      </div>
-      <div class="btn-signup">
-        <p style="cursor:pointer" class="signupbtn">Sign Up</p>
-      </div>
-    </div>
-  </div>
+
+  <!--    warpper-3   -->
+
   <div class="title">
     Blog Related Content
   </div>
 
 
-  <div class=" warpper-3">
+  <!--blog php script-->
+
+  <?php
+  include_once 'phpScript/db.php';
+  $query = mysqli_query($con , "SELECT * FROM blog LIMIT  1");
+  while ($row = mysqli_fetch_assoc($query)) {
+    // code...
+?>
+
+  <!--blog result-->
+
+  <div class="warpper-3">
     <div class="container">
       <div class="imageBox">
-        <iframe width="600" height="315" src="https://www.youtube.com/embed/uQgfQIVFG5o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <?php
+        echo $row['post_image'];
+        ?>
       </div>
       <section>
-        <h3>Unboxing Of Sonata Watch For Women</h3>
+        <h3><?php echo $row['post_titile']; ?></h3>
         <p>
-          Check My Youtube Video Right Now For Buying Link And Product Detalis.. Pls Share
-          <i class="fas fa-share-alt-square"></i>
-          Like
-          <i class="far fa-thumbs-up"></i>
-          And Subsribe
-          <i class= "fab fa-youtube"></i>
-
-          <br>
-          <br>
-       Join My Youtube Channel
-          <br>
-          <a href="https://youtube.com/huzefatai" target="_blank">https://youtube.com/huzefatai</a>
-          <br>
-       Join My WhatsApp Group
-          <a href="https://chat.whatsapp.com/7HxiNv4gxFWCCd9Tdvvw5I" target="_blank">https://chat.whatsapp.com/7HxiNv4gxFWCCd9Tdvvw5I</a>
-
-          <br>
-       Join Me On Blogger
-          <br>
-          <a href="https://huzefatai.blogspot.in" target="_blank">https://huzefatai.blogspot.in</a>
+          <?php echo $row['post_desc']; ?>
         </p>
 
-        <br>
-
-        <!-- read more buttton-->
-
-        <a href="HTML-Tutorial-For-Beginners...-Lecture-III" class="read-more">Read More</a>
-
-
+        <div class="border"></div>
       </section>
 
     </div>
 
   </div>
 
-
-  <div class=" warpper-3">
-    <div class="container">
-      <div class="imageBox">
-        <iframe width="600" height="315" src="https://www.youtube.com/embed/uQgfQIVFG5o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <section>
-        <h3>Unboxing Of Sonata Watch For Women</h3>
-        <p>
-          Check My Youtube Video Right Now For Buying Link And Product Detalis.. Pls Share
-          <i class="fas fa-share-alt-square"></i>
-          Like
-          <i class="far fa-thumbs-up"></i>
-          And Subsribe
-          <i class= "fab fa-youtube"></i>
-
-          <br>
-          <br>
-       Join My Youtube Channel
-          <br>
-          <a href="https://youtube.com/huzefatai" target="_blank">https://youtube.com/huzefatai</a>
-          <br>
-       Join My WhatsApp Group
-          <a href="https://chat.whatsapp.com/7HxiNv4gxFWCCd9Tdvvw5I" target="_blank">https://chat.whatsapp.com/7HxiNv4gxFWCCd9Tdvvw5I</a>
-
-          <br>
-       Join Me On Blogger
-          <br>
-          <a href="https://huzefatai.blogspot.in" target="_blank">https://huzefatai.blogspot.in</a>
-        </p>
-
-        <br>
-
-        <!-- read more buttton-->
-
-        <a href="HTML-Tutorial-For-Beginners...-Lecture-III" class="read-more">Read More</a>
-
-
-      </section>
-
-    </div>
-
-  </div>
+  <?php  continue;}  ?>
 
   <!--view more -->
 
@@ -297,12 +306,14 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
   </div>
 
 
-  <div class="proffesion" style="border-radius: 10px; display: block;">
+  <!--  proffesion -->
+
+  <div class="proffesion" style="border-radius: 10px;display: inline-flex;">
     <section>
       <div class="first">
         <div class="logo">
           <img src="https://static.thenounproject.com/png/108284-200.png" alt="">
-        </div>
+    </div>
 
           <div class="content">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -313,18 +324,16 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
         <div class="second">
           <div class="logo">
             <img src="https://cdn2.iconfinder.com/data/icons/startup-management/325/Project_management_End_Project_Report-512.png" alt="">
-          </div>
+      </div>
             <div class="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
           </div>
           <div class="thrid">
             <div class="logo">
               <img src="https://melbournechapter.net/images/transparent-tie-work-6.png" alt="">
-            </div>
-
+      </div>
               <div class="content">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                   consequat.
@@ -349,11 +358,11 @@ ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
         <a href="https://youtube.com/huzefatai" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="https://instagram.com/taihuzefa" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://googleplus.com/taihuzefa" target="_blank"><i class="fab fa-google-plus-square"></i></a>
+
       </main>
 
     </section>
   </footer>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </body>
